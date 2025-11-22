@@ -1,0 +1,12 @@
+const mongoose = require('mongoose');
+
+const reminderSchema = new mongoose.Schema({
+    userId: { type: String, required: true },
+    message: { type: String, required: true },
+    channelId: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now },
+    expireAt: { type: Date, required: true },
+    duration: { type: String, required: true }
+});
+
+module.exports = mongoose.model('Reminder', reminderSchema);
